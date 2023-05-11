@@ -1,0 +1,26 @@
+{% extends 'dapps/base.html' %}
+{% load crispy_forms_tags %}
+
+{% block content %}
+<div class="row justify-content-center">
+
+	<div class="col-8">
+		<div class="card border-light mb-3 mt-5 mr-4" style="max-width: 80rem;">
+			<div class="card-header">
+				<h3> Update savings Information </h3>
+			</div>
+			<div class="card-body">
+				<form method="POST" >
+					{% csrf_token %}
+					{{form | crispy}}
+					<button type="submit" class="btn btn-success">Update Savings</button>
+				</form>
+			</div>	
+		</div>
+	</div>
+</div>				
+	
+	
+	
+
+{% endblock %}

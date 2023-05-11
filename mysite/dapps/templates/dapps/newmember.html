@@ -1,0 +1,39 @@
+{% extends 'dapps/base.html' %}
+{% load crispy_forms_tags %}
+
+{% load static %}
+
+{% block content %}
+<div class="row justify-content-center">
+
+	<div class="col-8">
+		<div class="card border-light mb-3 mt-5 mr-4" style="max-width: 90rem;">
+			<div class="card-header"> <h3> Register New Njangi Member </h3> </div>
+			<div  class="card-body">
+				<form  method = "POST" >
+					{% csrf_token %}
+					<div  class="form-group">
+						<div class="row g-3">
+						  <div class="col">
+						    {{form.firstname|as_crispy_field}}
+						  </div>
+						  <div class="col">
+						    {{form.lastname|as_crispy_field}}
+						  </div>
+						</div>
+						{{form.id_number |as_crispy_field}}
+						{{form.phone |as_crispy_field}}
+						{{form.email |as_crispy_field}}
+						{{form.authority |as_crispy_field}}
+						{{form.monthofbenefit |as_crispy_field}}
+						<button type="submit" class="btn btn-primary">Submit</button>
+					</div>		
+				</form>
+			</div>	
+		</div>
+	</div>
+</div>			
+	
+	
+
+{% endblock %}

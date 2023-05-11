@@ -1,0 +1,50 @@
+{% extends 'dapps/base.html' %}
+
+{% block content %}
+
+<div class="card border-primary mt-5 ms-4 me-4 mb-4">
+
+  <div class="card-header">NJANGI THE 12TH</div>
+  <div class="card-body">
+    <h4 class="card-title"> List Of Members </h4>
+    {% if member_list %}
+    <p class="card-text">
+	    <table class="table table-hover">
+
+				<thead>
+
+				    <tr>	
+				    	<th scope="col">First Name</th>
+				    	<th scope="col">Last Name</th>
+				    	<th scope="col">ID </th>
+				    	<th scope="col">Phone</th>
+				    	<th scope="col">MOB</th>
+				    	<th scope="col">Action</th>
+				    </tr>
+				</thead>
+				<tbody>
+
+
+				  {% for member in member_list %}
+
+				   	<tr>
+				    	
+				    	<td>{{member.firstname}}</td>
+				    	<td>{{member.lastname}}</td>
+				    	<td>{{member.id_number}}</td>
+				    	<td>{{member.phone}}</td>
+				     	<td>{{member.monthofbenefit}}</td>
+				     	<td><a href="{% url 'member_detail' pk=member.pk %}"><i class="fa fa-info-circle"></i></a></td>
+				    </tr>
+
+				  {% endfor %}
+				</tbody>
+			</table>
+    </p>
+    {% else %}
+      <h5 class="alert alert-primary ms-4 me-4">You Have No Njangi Member Saved</h5>
+    {% endif %}
+  </div>
+</div>
+
+{% endblock %}
